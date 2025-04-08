@@ -1,28 +1,23 @@
 "use client";
-
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    // Carregar usuário do localStorage ao iniciar
-    const savedUser = localStorage.getItem("user");
-    if (savedUser) {
-      setUser(savedUser);
+  const login = (email, password) => {
+    // Simulação de login (substituir depois por API real)
+    if (email === "teste@teste.com" && password === "123456") {
+      setUser({ email });
+      return true;
+    } else {
+      return false;
     }
-  }, []);
-
-  const login = (username) => {
-    setUser(username);
-    localStorage.setItem("user", username);
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user");
   };
 
   return (
