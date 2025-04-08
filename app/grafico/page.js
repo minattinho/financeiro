@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../context/UserContext";
 import { useRouter } from "next/navigation";
 
 const COLORS = ["#34D399", "#60A5FA", "#FBBF24", "#F472B6"];
