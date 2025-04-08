@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../context/UserContext";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
