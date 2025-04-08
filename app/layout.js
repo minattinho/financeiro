@@ -4,11 +4,6 @@ import "./globals.css";
 import Link from "next/link";
 import { UserProvider, useUser } from "./context/UserContext";
 
-export const metadata = {
-  title: "July - Assistente Financeiro",
-  description: "Gerencie suas finanças com inteligência.",
-};
-
 function Header() {
   const { user, logout } = useUser();
 
