@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useUser } from "@/context/UserContext";
+import { useUser } from "../../context/UserContext";
 import { useRouter } from "next/navigation";
 
 export default function HistoricoPage() {
