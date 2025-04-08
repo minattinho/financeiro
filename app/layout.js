@@ -13,6 +13,12 @@ function Header() {
       <div className="text-green-700 font-bold text-2xl">
         July
       </div>
+  {user ? (
+  <span>Bem-vindo, {user.email}</span>
+) : (
+  <Link href="/login">Login</Link>
+)}
+
 
       {/* Menu de Navegação */}
       <nav className="flex gap-8 text-gray-700 font-semibold items-center">
