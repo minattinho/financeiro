@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../context/UserContext";
 
 export default function LoginPage() {
   const { login } = useUser();
