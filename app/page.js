@@ -1,9 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // <-- Animação
+import { motion, AnimatePresence } from "framer-motion";
+import { useUser } from "@/context/UserContext";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const { user } = useUser();
+  const router = useRouter();
+
   const [transactions, setTransactions] = useState([]);
   const [formData, setFormData] = useState({
     description: "",
@@ -12,8 +17,13 @@ export default function Home() {
     category: "",
     date: new Date().toISOString().substr(0, 10),
   });
-
   const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/login"); // Redireciona se não estiver logado
+    }
+  }, [user, router]);
 
   useEffect(() => {
     const data = localStorage.getItem("transactions");
@@ -59,10 +69,7 @@ export default function Home() {
 
     setTransactions([
       ...transactions,
-      { 
-        ...formData, 
-        amount: cleanAmount
-      },
+      { ...formData, amount: cleanAmount },
     ]);
 
     setFormData({
@@ -82,12 +89,11 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 overflow-hidden p-4 relative">
       <h1 className="text-4xl font-extrabold text-green-700 mb-8 text-center">
-        July - Assistente Financeiro
+        Registrar Transação
       </h1>
 
       <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
-        
-        {/* TODOS OS CAMPOS AQUI */}
+        {/* Campos */}
         <div className="flex flex-col">
           <label className="text-green-800 font-semibold mb-1">Descrição</label>
           <input
@@ -163,7 +169,7 @@ export default function Home() {
         </div>
       </form>
 
-      {/* POPUP DE SUCESSO */}
+      {/* Popup de Sucesso */}
       <AnimatePresence>
         {showPopup && (
           <motion.div
