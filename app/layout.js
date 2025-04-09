@@ -1,6 +1,6 @@
 import "./globals.css";
-import { UserProvider } from "@/context/UserContext";
-import Header from "@/components/Header";
+import { UserProvider } from "./context/UserContext";
+import Header from "./context/UserContext";
 
 export const metadata = {
   title: "July - Assistente Financeiro",
