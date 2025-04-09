@@ -1,43 +1,23 @@
-// app/layout.js (atualizado)
-'use client';
+import "./globals.css";
+import { UserProvider } from "@/context/UserContext";
+import Header from "@/components/Header";
 
-import './globals.css';
-import { UserProvider, useUser } from './context/UserContext';
-import Link from 'next/link';
+export const metadata = {
+  title: "July - Assistente Financeiro",
+  description: "Gerencie suas finanças com estilo e inteligência.",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-gray-50 min-h-screen overflow-hidden">
+      <body className="min-h-screen bg-gray-50 flex flex-col">
         <UserProvider>
           <Header />
-          <main className="flex justify-center items-center h-[calc(100vh-80px)]">
+          <main className="flex-grow flex items-center justify-center p-4">
             {children}
           </main>
         </UserProvider>
       </body>
     </html>
-  );
-}
-
-function Header() {
-  const { user } = useUser();
-
-  return (
-    <header className="flex justify-between items-center px-8 py-4 bg-white shadow-md">
-      <div className="text-green-700 font-bold text-2xl">
-        July
-      </div>
-      <nav className="flex gap-8 text-gray-700 font-semibold items-center">
-        {user ? (
-          <>
-            <Link className="hover:text-green-600 hover:underline underline-offset-4 transition" href="/">Transação</Link>
-            <Link className="hover:text-green-600 hover:underline underline-offset-4 transition" href="/historico">Histórico</Link>
-            <Link className="hover:text-green-600 hover:underline underline-offset-4 transition" href="/grafico">Gráficos</Link>
-          </>
-        ) : null}
-        <Link className="hover:text-green-600 hover:underline underline-offset-4 transition" href="/login">Login</Link>
-      </nav>
-    </header>
   );
 }
