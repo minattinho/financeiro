@@ -1,35 +1,49 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Fonte padrão para o app todo */
+body {
+  @apply font-sans bg-gray-50 text-gray-800;
 }
 
-
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Cabeçalhos */
+h1, h2, h3, h4, h5, h6 {
+  @apply text-green-700 font-bold;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Inputs padrão */
+input, select, textarea {
+  @apply border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition;
+}
+
+/* Botões padrão */
+button {
+  @apply bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105;
+}
+
+/* Links padrão */
+a {
+  @apply text-green-600 hover:text-green-700 hover:underline transition;
+}
+
+/* Cards padrão */
+.card {
+  @apply bg-white p-6 rounded-2xl shadow-lg;
+}
+
+/* Animação de fade in */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-html, body {
-  background-color: #ffffff;
-  color: #000000;
+.animate-fadeInDown {
+  animation: fadeInDown 0.6s ease-out both;
 }
