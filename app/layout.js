@@ -10,9 +10,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className="min-h-screen bg-gray-50 flex flex-col">
+      <head>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+      </head>
+      <body className="min-h-screen bg-gray-50 flex flex-col font-sans">
         <UserProvider>
           <Header />
+          
           <main className="flex-grow flex items-center justify-center p-4">
             {children}
           </main>
