@@ -1,6 +1,6 @@
 import "./globals.css";
 import { UserProvider } from "./context/UserContext";
-import Header from "./components/header"; // certo ✅
+import Header from "./components/Header"; // certo ✅
 
 export const metadata = {
   title: "July - Assistente Financeiro",
