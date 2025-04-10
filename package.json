@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "chart.js": "^4.4.8",
     "framer-motion": "^12.6.3",
     "my-finance-app": "file:",

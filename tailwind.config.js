@@ -7,10 +7,10 @@ module.exports = {
     theme: {
       extend: {
         fontFamily: {
-          sans: ['Inter', 'sans-serif'], // Isso corrige o erro de font-sans
+          sans: ["Inter", "sans-serif"],
         },
       },
     },
     plugins: [],
-  }
+  };
   
